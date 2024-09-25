@@ -28,6 +28,7 @@ def main():
                         screen=drawcell(screen, cell, color)
                     elif 575 <= y <= 665:
                         screen=template_menu(screen)
+                        cell=initcell()
                         cell=loadcell()
                         screen=intialize_menu(screen)
                         screen=drawcell(screen, cell, color)

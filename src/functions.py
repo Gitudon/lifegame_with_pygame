@@ -240,7 +240,7 @@ def autocell(screen, cell,color):
                         return cell
         cell=growcell(cell)
         screen=drawcell(screen, cell,color)
-        time.sleep(0.5)
+        time.sleep(0.25)
 
 def loadcell():
     while True:
