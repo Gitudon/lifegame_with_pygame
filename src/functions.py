@@ -23,12 +23,12 @@ def intialize_menu(screen):
     return screen
 
 def template_menu(screen):
-    font = pygame.font.SysFont("msgothic", 50)
-    messages=["", "", "", "", "", "", ""]
+    font = pygame.font.SysFont("msgothic", 25)
+    messages=["Glider Gun", "Puffer Train", "Die Hard", "Acorn", "R-Pentomino", "Brain", "Thunderbird"]
     for i in range(7):
         pygame.draw.rect(screen, buttoncolor, (800, 25+110*i, 175, 90))
         text=font.render(messages[i], True, fontcolor)
-        screen.blit(text, (820, 45+110*i))
+        screen.blit(text, (810, 55+110*i))
     pygame.display.flip()
     return screen
 
@@ -240,7 +240,7 @@ def autocell(screen, cell,color):
                         return cell
         cell=growcell(cell)
         screen=drawcell(screen, cell,color)
-        time.sleep(0.25)
+        time.sleep(0.15)
 
 def loadcell():
     while True:
@@ -265,3 +265,16 @@ def loadcell():
                         return cells[5]
                     elif 685 <= y <= 775:
                         return cells[6]
+
+def savecell(cell):
+    out="cell.txt"
+    with open(out, "w") as out:
+        print(cell,file=out)
+
+def load(cell,screen,color):
+    screen=template_menu(screen)
+    cell=initcell()
+    cell=loadcell()
+    screen=intialize_menu(screen)
+    screen=drawcell(screen, cell, color)
+    return [cell,screen]

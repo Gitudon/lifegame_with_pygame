@@ -27,11 +27,10 @@ def main():
                         color=changecolor(color)
                         screen=drawcell(screen, cell, color)
                     elif 575 <= y <= 665:
-                        screen=template_menu(screen)
-                        cell=initcell()
-                        cell=loadcell()
-                        screen=intialize_menu(screen)
-                        screen=drawcell(screen, cell, color)
+                        # tmp=load(cell,screen,color)
+                        # cell=tmp[0]
+                        # screen=tmp[1]
+                        savecell(cell)
                     elif 685 <= y <= 775:
                         pygame.quit()
                         sys.exit()
